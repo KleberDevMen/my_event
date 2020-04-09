@@ -17,7 +17,13 @@
     <% @parceiros.each do |parceiro| %>
       <tr>
         <td><%= parceiro.nome %></td>
-        <td><%= parceiro.imagens %></td>
+        <td>
+          <% parceiro.imagens.each do |d| %>
+            <a href="#" onclick='window.open("<%= d.url %>");return false;'>
+              <%= image_tag d.url, size: "50x50" %>
+            </a>
+          <% end %>
+        </td>
         <td><%= parceiro.descricao %></td>
         <td><%= link_to 'Show', parceiro %></td>
         <td><%= link_to 'Edit', edit_parceiro_path(parceiro) %></td>

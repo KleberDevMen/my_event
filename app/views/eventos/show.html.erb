@@ -15,15 +15,15 @@
   <%= @evento.local %>
 </p>
 
-<p>
-  <strong>Data inicio:</strong>
-  <%= @evento.data_inicio %>
-</p>
+<!--<p>-->
+<!--  <strong>Data inicio:</strong>-->
+<%#= @evento.data_inicio %>
+<!--</p>-->
 
-<p>
-  <strong>Data fim:</strong>
-  <%= @evento.data_fim %>
-</p>
+<!--<p>-->
+<!--  <strong>Data fim:</strong>-->
+<%#= @evento.data_fim %>
+<!--</p>-->
 
 <p>
   <strong>Codigo:</strong>
@@ -32,8 +32,30 @@
 
 <p>
   <strong>Admin:</strong>
-  <%= @evento.admin %>
+  <%= @evento.admin.email %>
 </p>
+
+<p>
+  <strong>parceiros:</strong> <br>
+  <% @evento.parceiros.each do |parceiro| %>
+    <span style="margin-left: 5px"><%= "• #{parceiro.nome}" %></span> <br>
+  <% end %>
+</p>
+
+<fieldset>
+  <% @evento.dias.each do |dia| %>
+    <strong>data: <%= dia.data %></strong>
+
+    <fieldset>
+      <strong>Atividades</strong> <br>
+      <% dia.atividades.each do |atv| %>
+        <strong>titulo </strong> <%= atv.titulo %> <br>
+        <strong>descrição </strong><%= atv.descricao %> <br>
+        <strong>hora </strong><%= atv.hora.strftime('%H:%M')%> <br>
+      <% end %>
+    </fieldset>
+  <% end %>
+</fieldset>
 
 <%= link_to 'Edit', edit_evento_path(@evento) %> |
 <%= link_to 'Back', eventos_path %>

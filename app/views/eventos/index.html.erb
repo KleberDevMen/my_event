@@ -6,10 +6,10 @@
   <thead>
     <tr>
       <th>Titulo</th>
-      <th>Descricao</th>
-      <th>Local</th>
-      <th>Data inicio</th>
-      <th>Data fim</th>
+<!--      <th>Descricao</th>-->
+<!--      <th>Local</th>-->
+<!--      <th>Data inicio</th>-->
+<!--      <th>Data fim</th>-->
       <th>Codigo</th>
       <th>Admin</th>
       <th colspan="3"></th>
@@ -20,12 +20,12 @@
     <% @eventos.each do |evento| %>
       <tr>
         <td><%= evento.titulo %></td>
-        <td><%= evento.descricao %></td>
-        <td><%= evento.local %></td>
-        <td><%= evento.data_inicio %></td>
-        <td><%= evento.data_fim %></td>
+<!--        <td><%#= evento.descricao %></td>-->
+<!--        <td><%#= evento.local %></td>-->
+<!--        <td><%#= evento.data_inicio %></td>-->
+<!--        <td><%#= evento.data_fim %></td>-->
         <td><%= evento.codigo %></td>
-        <td><%= evento.admin %></td>
+        <td><%= evento.admin.email %></td>
         <td><%= link_to 'Show', evento %></td>
         <td><%= link_to 'Edit', edit_evento_path(evento) %></td>
         <td><%= link_to 'Destroy', evento, method: :delete, data: { confirm: 'Are you sure?' } %></td>

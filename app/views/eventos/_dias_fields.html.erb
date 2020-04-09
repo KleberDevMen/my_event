@@ -11,10 +11,10 @@
         <%= render 'atividades_fields', :f => atividade %>
       <% end %>
       <div class='links'>
-        <%= link_to_add_association 'add atividade', f, :atividades,
+        <%= link_to_add_association 'adicionar atividade', f, :atividades,
                                     partial: 'atividades_fields' %>
       </div>
     </div>
   </fieldset>
-  <%= link_to_remove_association "remove dia", f %>
+  <%= link_to_remove_association "remover dia", f %>
 </div>

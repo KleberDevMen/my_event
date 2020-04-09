@@ -6,8 +6,12 @@
 </p>
 
 <p>
-  <strong>Imagens:</strong>
-  <%= @parceiro.imagens %>
+  <strong>Imagens:</strong><br>
+  <% @parceiro.imagens.each do |d| %>
+    <a href="#" onclick='window.open("<%= d.url %>");return false;'>
+      <%= image_tag d.url, size: "50x50" %>
+    </a>
+  <% end %>
 </p>
 
 <p>

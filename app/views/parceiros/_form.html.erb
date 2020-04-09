@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :nome %>
-    <%= form.text_field :nome %>
+    <%= form.text_field :nome, accept: 'image/png,image/gif,image/jpeg' %>
   </div>
 
   <div class="field">
     <%= form.label :imagens %>
-    <%= form.text_field :imagens %>
+    <%= form.file_field :imagens, multiple: true %>
   </div>
 
   <div class="field">

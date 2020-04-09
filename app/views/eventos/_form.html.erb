@@ -26,6 +26,14 @@
     <%= f.text_field :local %>
   </div>
 
+  <div class="field">
+    <%= f.label :parceiro_ids, "Perfis" %>
+    <%= f.select :parceiro_ids,
+                 options_for_select(@parceiros, evento.parceiro_ids),
+                 {},
+                 {class: 'js-example-basic-multiple', multiple: "multiple"} %>
+  </div>
+
   <%= f.hidden_field :admin_id, value: current_admin[:id] %>
 
   <fieldset>
@@ -35,7 +43,7 @@
         <%= render 'dias_fields', :f => dia %>
       <% end %>
       <div class='links'>
-        <%= link_to_add_association 'add dia', f, :dias,
+        <%= link_to_add_association 'adicionar dia', f, :dias,
                                     partial: 'dias_fields' %>
       </div>
     </div>
@@ -46,3 +54,9 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<script>
+    $(document).ready(function() {
+        $('.js-example-basic-multiple').select2();
+    });
+</script>

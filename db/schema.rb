@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_09_151602) do
+ActiveRecord::Schema.define(version: 2020_04_09_220817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,15 @@ ActiveRecord::Schema.define(version: 2020_04_09_151602) do
     t.index ["evento_id"], name: "index_dias_on_evento_id"
   end
 
+  create_table "evento_parceiros", force: :cascade do |t|
+    t.bigint "evento_id"
+    t.bigint "parceiro_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["evento_id"], name: "index_evento_parceiros_on_evento_id"
+    t.index ["parceiro_id"], name: "index_evento_parceiros_on_parceiro_id"
+  end
+
   create_table "eventos", force: :cascade do |t|
     t.string "titulo"
     t.string "descricao"
@@ -68,5 +77,7 @@ ActiveRecord::Schema.define(version: 2020_04_09_151602) do
 
   add_foreign_key "atividades", "dias"
   add_foreign_key "dias", "eventos"
+  add_foreign_key "evento_parceiros", "eventos"
+  add_foreign_key "evento_parceiros", "parceiros"
   add_foreign_key "eventos", "admins"
 end

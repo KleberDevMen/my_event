@@ -1,5 +1,6 @@
 class EventosController < ApplicationController
   before_action :set_evento, only: [:show, :edit, :update, :destroy]
+  before_action :set_combos, only: [:new, :create, :edit, :update]
 
   # GET /eventos
   # GET /eventos.json
@@ -62,22 +63,28 @@ class EventosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_evento
-      @evento = Evento.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def evento_params
-      binding.pry
-      params.require(:evento).permit(:titulo,
-                                     :descricao,
-                                     :local,
-                                     :data_inicio,
-                                     :data_fim,
-                                     :codigo,
-                                     :admin_id,
-                                     dias_attributes: [:id, :data],
-                                     atividades_attributes: [:id, :titulo, :descricao, :hora])
-    end
+  def set_combos
+    @parceiros = Parceiro.all.map { |p| [p.nome, p.id] }
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_evento
+    #@evento = Evento.includes(dias: [:atividades]).find(params[:id])
+    @evento = Evento.left_outer_joins(dias: [:atividades]).find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def evento_params
+    params.require(:evento).permit(:titulo,
+                                   :descricao,
+                                   :local,
+                                   :data_inicio,
+                                   :data_fim,
+                                   :codigo,
+                                   :admin_id,
+                                   parceiro_ids: [],
+                                   dias_attributes: [:id, :data, :_destroy,
+                                                     atividades_attributes: [:id, :titulo, :descricao, :hora, :_destroy]])
+  end
 end

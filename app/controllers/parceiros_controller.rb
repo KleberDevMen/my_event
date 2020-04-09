@@ -69,6 +69,8 @@ class ParceirosController < AdminsController
 
     # Only allow a list of trusted parameters through.
     def parceiro_params
-      params.require(:parceiro).permit(:nome, :imagens, :descricao)
+      params.require(:parceiro).permit(:nome,
+                                       {imagens: []},
+                                       :descricao)
     end
 end
