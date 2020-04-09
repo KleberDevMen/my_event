@@ -1,13 +1,10 @@
-class ParceirosController < ApplicationController
+class ParceirosController < AdminsController
   before_action :set_parceiro, only: [:show, :edit, :update, :destroy]
 
   # GET /parceiros
   # GET /parceiros.json
   def index
     @parceiros = Parceiro.all
-
-
-
   end
 
   # GET /parceiros/1

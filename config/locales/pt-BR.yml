@@ -1,0 +1,225 @@
+---
+pt-BR:
+  gerenciar_folgas: Folgas para Homologação
+  usufruir_folga: Solicitação de Fruição de Folga
+  usufruir_folgas: Solicitações de Fruição de Folga
+  precisa_homologar: Homologação do RH
+  concessao_automatica: Concessão automática
+  precisa_ano: Ano de referência
+  create: "Cadastrar"
+  edit: "Alterar"
+  index: "Listagem"
+  new: "Novo"
+  show: "Visualizar"
+  update: "Alterar"
+  ativar: "Ativação"
+  desativar: "Desativação"
+  delete: "Excluir"
+
+  created_at: "Criado em"
+  updated_at: "Atualizado em"
+  descricao: "Descrição"
+  data_inicio: "Data início"
+  status: "Situação"
+  secretaria_id: "Órgão"
+  observacao: "Observação"
+  data_termino: "Data fim"
+  tolerancia: "Tolerância"
+  icone: "Ícone"
+
+  status_usufruir_folga_values:
+    solicitada: Solicitada
+    indeferida: Indeferida
+    deferida: Deferida
+    cancelada: Cancelada
+    usufruida: Usufruída
+    vencida: Vencida
+  status_folga_values:
+    cadastrada: Cadastrada
+    homologada: Homologada
+    rejeitada: Rejeitada
+    pendente: Pendente
+    usufruida: Usufruída
+    vencida: Vencida
+  messages:
+    cadastrado: "Cadastrado!"
+    cadastro_erro: "Um erro impediu o cadastro"
+    alterado: "Atualizado!"
+    alterado_erro: "Um erro impediu a alteração"
+    deletado_erro: "Um erro impediu a exclusão"
+    deletado: "Excluido!"
+    reativado: "Reativado"
+    ativado: "Ativado!"
+    desativado: "Desativado!"
+    reativado_erro: "Não é possível reativar."
+    ativado_erro: "Não é possível ativar"
+    desativado_erro: "Não é possível desativar"
+    homologada: Homologado!
+    homologada_erro: Um erro impediu a homologação
+    regeitada: Regeitado!
+    regeitada_erro: Um erro impediu a regeição
+    format: "%{message}"
+  errors:
+    messages:
+      blank: "Campo em branco"
+      expired: "expirou, por favor solicite um novo"
+      not_found: "não encontrado"
+      required: "é um campo requerido"
+      greater_than_or_equal_to: deve ser maior ou igual a %{count}
+      less_than_or_equal_to: deve ser menor ou igual a %{count}
+      # Upload de arquivos
+      carrierwave_processing_error: falhou em ser processado
+      carrierwave_integrity_error: não é um tipo de arquivo permitido
+      carrierwave_download_error: não pôde ser baixado
+      extension_whitelist_error: "Não é permitido o envio de arquivos %{extension}, tipos permitidos: %{allowed_types}"
+      extension_blacklist_error: "Não é permitido o envio de arquivos %{extension}, tipos proibidos: %{prohibited_types}"
+      content_type_whitelist_error: "Não é permitido o envio de arquivos %{content_type}, tipos permitidos: %{allowed_types}"
+      content_type_blacklist_error: "Não é permitido o envio de arquivos %{content_type}"
+      rmagick_processing_error: "Falha ao manipular com RMagick, talvez arquivo não seja uma imagem? Erro original: %{e}"
+      mini_magick_processing_error: "Falha ao manipular com MiniMagick, talvez arquivo não seja uma imagem? Erro original: %{e}"
+      min_size_error: "O tamanho do arquivo deve ser maior do que %{min_size}"
+      max_size_error: "O tamanho do arquivo deve ser inferior a %{max_size}"
+    too_long:
+      one: "é muito longo (máximo: 1 caracter)"
+      other: "é muito longo (máximo: %{count} caracteres)"
+    too_short:
+      one: "é muito curto (mínimo: 1 caracter)"
+      other: "é muito curto (mínimo: %{count} caracteres)"
+    wrong_length:
+      one: não possui o tamanho esperado (1 caracter)
+      other: não possui o tamanho esperado (%{count} caracteres)
+  activerecord:
+    models:
+      reclamacao: Reclamação
+    attributes:
+      reclamacao:
+        created_at: Criado em
+        updated_at: Atualizado em
+        cpf: CPF
+        endereco: Endereço
+        email: E-mail
+        telefone_fixo: Telefone fixo
+        celular: Celular
+        doc_procuracao: Procuração (.pdf)
+        nome_fornecedor: Nome do Fornecedor
+        endereco_fornecedor: Endereço do Fornecedor
+        site_fornecedor: Site do Fornecedor
+        telefone_fornecedor: Telefone fixo do Fornecedor
+        modalidade_fornecedor: Modalidade de Acesso ao Produto ou Serviço
+        #        o_que_ocorreu: O que aconteceu
+        o_que_ocorreu: "Relato detalhado do que ocorreu:"
+        quando_ocorreu: Quando ocorreu
+        #        pedido_solucao: Pedido ou Solução
+        pedido_solucao: "Pedido do consumidor:"
+        protocolos_obtidos: Protocolos recebidos da empresa (se houver)
+        status: Situação
+        protocolo: Protocolo
+        docs_pessoais: Documentos pessoais
+        cidade_u_s: Cidadeprotocolos
+        cidade_f_s: Cidade onde ocorreu o fato
+        estado_u_s: Estado
+        data_analise: Data da análise
+        docs_relacao_consumo: Comprovação de relação de consumo
+        docs_fundamentam_reclamacao: Documentos que fundamentam a reclamação
+  recaptcha:
+    errors:
+      verification_failed: "A verificação contra robôs falhou, por favor, tente novamente."
+  date:
+    abbr_day_names:
+      - dom
+      - seg
+      - ter
+      - qua
+      - qui
+      - sex
+      - sáb
+    abbr_month_names:
+      -
+      - jan
+      - fev
+      - mar
+      - abr
+      - mai
+      - jun
+      - jul
+      - ago
+      - set
+      - out
+      - nov
+      - dez
+    day_names:
+      - domingo
+      - segunda-feira
+      - terça-feira
+      - quarta-feira
+      - quinta-feira
+      - sexta-feira
+      - sábado
+    formats:
+      default: "%d/%m/%Y"
+      long: "%d de %B de %Y"
+      short: "%d de %B"
+    month_names:
+      -
+      - janeiro
+      - fevereiro
+      - março
+      - abril
+      - maio
+      - junho
+      - julho
+      - agosto
+      - setembro
+      - outubro
+      - novembro
+      - dezembro
+    order:
+      - :day
+      - :month
+      - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: "aproximadamente 1 hora"
+        other: "aproximadamente %{count} horas"
+      about_x_months:
+        one: "aproximadamente 1 mês"
+        other: "aproximadamente %{count} meses"
+      about_x_years:
+        one: "aproximadamente 1 ano"
+        other: "aproximadamente %{count} anos"
+      almost_x_years:
+        one: "quase 1 ano"
+        other: "quase %{count} anos"
+      half_a_minute: "meio minuto"
+      less_than_x_seconds:
+        one: "menos de 1 segundo"
+        other: "menos de %{count} segundos"
+      less_than_x_minutes:
+        one: "menos de um minuto"
+        other: "menos de %{count} minutos"
+      over_x_years:
+        one: "mais de 1 ano"
+        other: "mais de %{count} anos"
+      x_seconds:
+        one: "1 segundo"
+        other: "%{count} segundos"
+      x_minutes:
+        one: "1 minuto"
+        other: "%{count} minutos"
+      x_days:
+        one: "1 dia"
+        other: "%{count} dias"
+      x_months:
+        one: "1 mês"
+        other: "%{count} meses"
+      x_years:
+        one: "1 ano"
+        other: "%{count} anos"
+    prompts:
+      second: Segundo
+      minute: Minuto
+      hour: Hora
+      day: Dia
+      month: Mês
+      year: Ano
