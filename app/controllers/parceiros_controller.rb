@@ -5,6 +5,9 @@ class ParceirosController < ApplicationController
   # GET /parceiros.json
   def index
     @parceiros = Parceiro.all
+
+
+
   end
 
   # GET /parceiros/1
