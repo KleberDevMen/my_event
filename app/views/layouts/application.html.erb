@@ -10,7 +10,9 @@
 </head>
 
 <body>
-<%= render partial: 'layouts/menu' %>
+<% if current_admin.present? %>
+  <%= render partial: 'layouts/menu' %>
+<% end %>
 <%= yield %>
 </body>
 </html>

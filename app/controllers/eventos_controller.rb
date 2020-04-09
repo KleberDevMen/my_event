@@ -1,4 +1,4 @@
-class EventosController < ApplicationController
+class EventosController < AdminsController
   before_action :set_evento, only: [:show, :edit, :update, :destroy]
   before_action :set_combos, only: [:new, :create, :edit, :update]
 
