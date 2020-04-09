@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  titulo: MyString
+  descricao: MyString
+  local: MyString
+  data_inicio: 2020-04-09
+  data_fim: 2020-04-09
+  codigo: MyString
+  admin: one
+
+two:
+  titulo: MyString
+  descricao: MyString
+  local: MyString
+  data_inicio: 2020-04-09
+  data_fim: 2020-04-09
+  codigo: MyString
+  admin: two

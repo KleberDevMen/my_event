@@ -1,0 +1,48 @@
+<%= form_with(model: evento, local: true) do |f| %>
+  <% if evento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(evento.errors.count, "error") %> prohibited this evento from being saved:</h2>
+
+      <ul>
+        <% evento.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :titulo %>
+    <%= f.text_field :titulo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :descricao %>
+    <%= f.text_field :descricao %>
+  </div>
+
+  <div class="field">
+    <%= f.label :local %>
+    <%= f.text_field :local %>
+  </div>
+
+  <%= f.hidden_field :admin_id, value: current_admin[:id] %>
+
+  <fieldset>
+    <label>Dias</label>
+    <div id='dias'>
+      <%= f.fields_for :dias do |dia| %>
+        <%= render 'dias_fields', :f => dia %>
+      <% end %>
+      <div class='links'>
+        <%= link_to_add_association 'add dia', f, :dias,
+                                    partial: 'dias_fields' %>
+      </div>
+    </div>
+  </fieldset>
+
+  <br>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
