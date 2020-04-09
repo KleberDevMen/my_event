@@ -68,5 +68,3 @@ gem "cocoon"
 gem 'jquery-rails'
 gem 'carrierwave', '~> 2.0'
 gem "select2-rails"
-
-#gem 'bootstrap', '~> 4.4.1'
