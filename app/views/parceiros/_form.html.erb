@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+  <%= form.hidden_field :admin_id, value: current_admin[:id] %>
   <div class="field">
     <%= form.label :nome %>
     <%= form.text_field :nome, accept: 'image/png,image/gif,image/jpeg' %>
@@ -19,6 +20,8 @@
   <div class="field">
     <%= form.label :imagens %>
     <%= form.file_field :imagens, multiple: true %>
+    <br> <strong>ou <br> link:</strong>
+    <%= form.text_field :img_link, placeholder: 'http://imga.com' %>
   </div>
 
   <div class="field">

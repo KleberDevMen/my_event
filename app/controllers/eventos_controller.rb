@@ -5,7 +5,7 @@ class EventosController < AdminsController
   # GET /eventos
   # GET /eventos.json
   def index
-    @eventos = Evento.all
+    @eventos = Evento.where(admin_id: current_admin[:id])
   end
 
   # GET /eventos/1

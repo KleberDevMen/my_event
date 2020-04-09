@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_09_220817) do
+ActiveRecord::Schema.define(version: 2020_04_09_225056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,9 @@ ActiveRecord::Schema.define(version: 2020_04_09_220817) do
     t.string "descricao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "admin_id"
+    t.string "img_link"
+    t.index ["admin_id"], name: "index_parceiros_on_admin_id"
   end
 
   add_foreign_key "atividades", "dias"
@@ -80,4 +83,5 @@ ActiveRecord::Schema.define(version: 2020_04_09_220817) do
   add_foreign_key "evento_parceiros", "eventos"
   add_foreign_key "evento_parceiros", "parceiros"
   add_foreign_key "eventos", "admins"
+  add_foreign_key "parceiros", "admins"
 end

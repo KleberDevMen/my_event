@@ -4,7 +4,7 @@ class ParceirosController < AdminsController
   # GET /parceiros
   # GET /parceiros.json
   def index
-    @parceiros = Parceiro.all
+    @parceiros = Parceiro.where admin_id: current_admin[:id]
   end
 
   # GET /parceiros/1
@@ -71,6 +71,8 @@ class ParceirosController < AdminsController
     def parceiro_params
       params.require(:parceiro).permit(:nome,
                                        {imagens: []},
-                                       :descricao)
+                                       :descricao,
+                                       :admin_id,
+                                       :img_link)
     end
 end

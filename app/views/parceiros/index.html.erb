@@ -5,31 +5,35 @@
 
 <table>
   <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Imagens</th>
-      <th>Descricao</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Nome</th>
+    <th>Imagens</th>
+    <th>Descricao</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @parceiros.each do |parceiro| %>
-      <tr>
-        <td><%= parceiro.nome %></td>
-        <td>
-          <% parceiro.imagens.each do |d| %>
-            <a href="#" onclick='window.open("<%= d.url %>");return false;'>
-              <%= image_tag d.url, size: "50x50" %>
-            </a>
-          <% end %>
-        </td>
-        <td><%= parceiro.descricao %></td>
-        <td><%= link_to 'Show', parceiro %></td>
-        <td><%= link_to 'Edit', edit_parceiro_path(parceiro) %></td>
-        <td><%= link_to 'Destroy', parceiro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <% @parceiros.each do |parceiro| %>
+    <tr>
+      <td><%= parceiro.nome %></td>
+      <td>
+        <% if parceiro.img_link.present? %>
+          <a href="#" onclick='window.open("<%= parceiro.img_link %>");return false;'>
+            <%= image_tag parceiro.img_link, size: "50x50" %>
+          </a>
+        <% elsif parceiro.imagens.any? %>
+          <a href="#" onclick='window.open("<%= parceiro.imagens.first.url %>");return false;'>
+            <%= image_tag parceiro.imagens.first.url, size: "50x50" %>
+          </a>
+        <% end %>
+      </td>
+      <td><%= parceiro.descricao %></td>
+      <td><%= link_to 'Show', parceiro %></td>
+      <td><%= link_to 'Edit', edit_parceiro_path(parceiro) %></td>
+      <td><%= link_to 'Destroy', parceiro, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
 
