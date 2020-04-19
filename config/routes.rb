@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  resources :eventos
+
   devise_for :admins
+
+  resources :admins_entity, only: [:index]
+  resources :eventos
   resources :parceiros
 
-  root "eventos#index"
+  root "admins_entity#index"
 end

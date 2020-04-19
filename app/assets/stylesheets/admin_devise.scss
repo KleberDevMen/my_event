@@ -9,3 +9,16 @@
  *= require malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar
  *= require custom
  */
+
+.separator a {
+  color: #4591ad;
+}
+.separator a:hover {
+  background: #e7e7e7;
+}
+
+.submit {
+  width: 40%;
+  margin-left: 30% !important;
+  margin-right: 30%;
+}

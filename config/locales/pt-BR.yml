@@ -1,46 +1,5 @@
 ---
 pt-BR:
-  gerenciar_folgas: Folgas para Homologação
-  usufruir_folga: Solicitação de Fruição de Folga
-  usufruir_folgas: Solicitações de Fruição de Folga
-  precisa_homologar: Homologação do RH
-  concessao_automatica: Concessão automática
-  precisa_ano: Ano de referência
-  create: "Cadastrar"
-  edit: "Alterar"
-  index: "Listagem"
-  new: "Novo"
-  show: "Visualizar"
-  update: "Alterar"
-  ativar: "Ativação"
-  desativar: "Desativação"
-  delete: "Excluir"
-
-  created_at: "Criado em"
-  updated_at: "Atualizado em"
-  descricao: "Descrição"
-  data_inicio: "Data início"
-  status: "Situação"
-  secretaria_id: "Órgão"
-  observacao: "Observação"
-  data_termino: "Data fim"
-  tolerancia: "Tolerância"
-  icone: "Ícone"
-
-  status_usufruir_folga_values:
-    solicitada: Solicitada
-    indeferida: Indeferida
-    deferida: Deferida
-    cancelada: Cancelada
-    usufruida: Usufruída
-    vencida: Vencida
-  status_folga_values:
-    cadastrada: Cadastrada
-    homologada: Homologada
-    rejeitada: Rejeitada
-    pendente: Pendente
-    usufruida: Usufruída
-    vencida: Vencida
   messages:
     cadastrado: "Cadastrado!"
     cadastro_erro: "Um erro impediu o cadastro"
@@ -90,37 +49,14 @@ pt-BR:
       other: não possui o tamanho esperado (%{count} caracteres)
   activerecord:
     models:
-      reclamacao: Reclamação
+      admin:
+        one: Administrador
+        other: Administradores
     attributes:
-      reclamacao:
+      admin:
+        email: Email
         created_at: Criado em
         updated_at: Atualizado em
-        cpf: CPF
-        endereco: Endereço
-        email: E-mail
-        telefone_fixo: Telefone fixo
-        celular: Celular
-        doc_procuracao: Procuração (.pdf)
-        nome_fornecedor: Nome do Fornecedor
-        endereco_fornecedor: Endereço do Fornecedor
-        site_fornecedor: Site do Fornecedor
-        telefone_fornecedor: Telefone fixo do Fornecedor
-        modalidade_fornecedor: Modalidade de Acesso ao Produto ou Serviço
-        #        o_que_ocorreu: O que aconteceu
-        o_que_ocorreu: "Relato detalhado do que ocorreu:"
-        quando_ocorreu: Quando ocorreu
-        #        pedido_solucao: Pedido ou Solução
-        pedido_solucao: "Pedido do consumidor:"
-        protocolos_obtidos: Protocolos recebidos da empresa (se houver)
-        status: Situação
-        protocolo: Protocolo
-        docs_pessoais: Documentos pessoais
-        cidade_u_s: Cidadeprotocolos
-        cidade_f_s: Cidade onde ocorreu o fato
-        estado_u_s: Estado
-        data_analise: Data da análise
-        docs_relacao_consumo: Comprovação de relação de consumo
-        docs_fundamentam_reclamacao: Documentos que fundamentam a reclamação
   recaptcha:
     errors:
       verification_failed: "A verificação contra robôs falhou, por favor, tente novamente."

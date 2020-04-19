@@ -1,29 +1,46 @@
-<h2>Sign up</h2>
+<div>
+  <div class="login_wrapper">
+    <div class="animate form login_form">
+      <section class="login_content">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <h1>Criar conta</h1>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+          <div>
+            <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email" %>
+          </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <div>
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br/>
+            <%= f.password_field :password, class: "form-control", placeholder: "Senha" %>
+          </div>
+
+          <div>
+            <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirmação da senha" %>
+          </div>
+
+          <div class="center-block">
+            <%= f.submit "Cadastrar-se", class: "btn btn-secondary submit" %>
+          </div>
+
+
+          <div class="clearfix"></div>
+          <div class="separator">
+            <p class="change_link">Já possui uma conta ?
+              <a href="<%=  new_session_path(resource_name) %>" class="to_register"> Log in </a>
+            </p>
+
+            <div class="clearfix"></div>
+            <br/>
+
+            <div>
+              <h1><i class="fa fa-bullhorn"></i> My Event </h1>
+            </div>
+          </div>
+        <% end %>
+      </section>
+    </div>
+
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "admins/shared/links" %>
+</div>
