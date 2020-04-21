@@ -1,0 +1,114 @@
+<div class="row">
+  <div class="col-md-12 col-sm-12 ">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Dados do evento</h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+          </li>
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="x_content">
+        <br>
+        <%= form_with model: [:admins_backoffice, evento], local: true, class: "form-horizontal form-label-left" do |f| %>
+            <div class="item form-group">
+              <div class="col-md-6 col-sm-6 offset-3">
+                <button type="submit" class="btn btn-success" style="float: right;">Salvar</button>
+              </div>
+            </div>
+
+            <% if evento.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(evento.errors.count, "error") %> prohibited this evento from being saved:</h2>
+
+                <ul>
+                  <% evento.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="item form-group">
+              <%= f.label :titulo, class: "col-form-label col-md-3 col-sm-3 label-align" %>
+              <div class="col-md-6 col-sm-6 ">
+                <%= f.text_field :titulo,
+                                 class: "form-control",
+                                 placeholder: 'Título' %>
+              </div>
+            </div>
+
+            <div class="item form-group">
+              <%= f.label :descricao, class: "col-form-label col-md-3 col-sm-3 label-align" %>
+              <div class="col-md-6 col-sm-6 ">
+                <%= f.text_area :descricao,
+                                class: "form-control",
+                                placeholder: 'Descrição' %>
+              </div>
+            </div>
+
+            <div class="item form-group">
+              <%= f.label :local, class: "col-form-label col-md-3 col-sm-3 label-align" %>
+              <div class="col-md-6 col-sm-6 ">
+                <%= f.text_area :local,
+                                class: "form-control",
+                                placeholder: 'Local' %>
+              </div>
+            </div>
+
+            <div class="item form-group ">
+              <%= f.label :parceiro_ids, "Parceiros", class: "col-form-label col-md-3 col-sm-3 label-align" %>
+              <div class="col-md-6 col-sm-6 ">
+                <%= f.select :parceiro_ids,
+                             options_for_select(@parceiros, evento.parceiro_ids),
+                             {},
+                             {class: 'select2_multiple form-control', multiple: "multiple"} %>
+              </div>
+            </div>
+
+            <%= f.hidden_field :admin_id, value: current_admin[:id] %>
+
+            <div class="ln_solid"></div>
+
+
+              <div class="row">
+                <div class="col-md-8 col-sd-6 offset-md-2">
+                  <%= f.fields_for :dias do |dia| %>
+                    <%= render 'dias_fields', :f => dia %>
+                  <% end %>
+                  <div class='links'>
+                    <%= link_to_add_association 'adicionar dia', f, :dias,
+                                                {partial: 'dias_fields',
+                                                 class: 'btn btn-success btn-sm mt-2 add-dia'} %>
+                  </div>
+                </div>
+              </div>
+
+
+            <div class="ln_solid"></div>
+            <div class="item form-group">
+              <div class="col-md-6 col-sm-6 offset-3">
+                <button type="submit" class="btn btn-success" style="float: right;">Salvar</button>
+              </div>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :footer_adm do %>
+  <script>
+      $(document).ready(function () {
+          $(document).on('click', '.add-dia', function () {
+              $('.date').mask('00/00/0000');
+          })
+
+          $(document).on('click', '.add-atividade', function () {
+              $('.time').mask('00:00');
+          })
+      });
+  </script>
+<% end %>

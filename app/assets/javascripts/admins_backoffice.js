@@ -10,5 +10,4 @@
 
 //= require select2
 //= require cocoon
-//= require inputmask/dist/min/jquery.inputmask.bundle.min
 //= requere admins_backoffice/eventos

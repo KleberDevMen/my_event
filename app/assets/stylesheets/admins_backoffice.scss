@@ -5,14 +5,4 @@
  *= require nprogress/nprogress
  *= require malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar
  *= require custom
- *= require admins_backoffice/eventos
  */
-
-.acoes {
-  a {
-    margin-right: 10px;
-  }
-  a:hover {
-    filter: brightness(0.5);
-  }
-}

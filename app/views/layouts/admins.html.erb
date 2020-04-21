@@ -22,7 +22,7 @@
     <div class="col-md-3 left_col menu_fixed">
       <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
-          <a href="index.html" class="site_title"><i class="fa fa-bullhorn"></i> <span> My Event </span></a>
+          <a href="/" class="site_title"><i class="fa fa-bullhorn"></i> <span> My Event </span></a>
         </div>
 
         <div class="clearfix"></div>
@@ -49,10 +49,10 @@
                 <a href="<%= admins_entity_index_path %>"><i class="fa fa-home"></i>Início</a>
               </li>
               <li>
-                <a href="<%= eventos_path %>"><i class="fa fa-calendar"></i>Eventos</a>
+                <a href="<%= admins_backoffice_eventos_path %>"><i class="fa fa-calendar"></i>Eventos</a>
               </li>
               <li>
-                <a href="<%= parceiros_path %>"><i class="fa fa-users"></i>Parceiros</a>
+                <a href="<%= admins_backoffice_parceiros_path %>"><i class="fa fa-users"></i>Parceiros</a>
               </li>
             </ul>
           </div>
@@ -135,5 +135,8 @@
     });
   <% end %>
 <% end %>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+<%= yield(:footer_adm) %>
 </body>
 </html>

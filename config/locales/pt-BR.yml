@@ -52,11 +52,18 @@ pt-BR:
       admin:
         one: Administrador
         other: Administradores
+      evento: Evento
     attributes:
       admin:
         email: Email
         created_at: Criado em
         updated_at: Atualizado em
+      evento:
+        titulo: Título
+        codigo: Código
+        local: Local
+
+
   recaptcha:
     errors:
       verification_failed: "A verificação contra robôs falhou, por favor, tente novamente."

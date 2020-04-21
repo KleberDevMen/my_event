@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @parceiro.nome %>
+</p>
+
+<p>
+  <strong>Imagens:</strong><br>
+  <% @parceiro.imagens.each do |d| %>
+    <a href="#" onclick='window.open("<%= d.url %>");return false;'>
+      <%= image_tag d.url, size: "50x50" %>
+    </a>
+  <% end %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @parceiro.descricao %>
+</p>
+
+<%= link_to 'Edit', edit_parceiro_path(@parceiro) %> |
+<%= link_to 'Back', parceiros_path %>

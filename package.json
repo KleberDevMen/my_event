@@ -6,6 +6,7 @@
     "bootstrap-growl-ifightcrime": "^1.1.0",
     "fastclick": "1.0.6",
     "font-awesome": "4.6.3",
+    "inputmask": "^3.3.5",
     "jquery": "3.3.1",
     "jquery.turbolinks": "^2.1.0",
     "malihu-custom-scrollbar-plugin": "^3.1.5",

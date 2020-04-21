@@ -1,0 +1,25 @@
+<div class="x_panel">
+  <div class='nested-fields' id="ajax-fields">
+
+
+    <div class="form-group">
+      <%= f.label :data, class: 'mb-0' %>
+      <%= f.text_field :data, class: 'form-control date' %>
+    </div>
+
+
+
+    <%= f.fields_for :atividades do |atividade| %>
+      <%= render 'atividades_fields', :f => atividade %>
+    <% end %>
+    <div class='links'>
+      <%= link_to_add_association 'adicionar atividade', f, :atividades,
+                                  {partial: 'atividades_fields',
+                                   class: 'btn btn-info btn-sm mt-2 add-atividade'} %>
+    </div>
+
+    <%= link_to_remove_association "remover dia", f, {class: 'red', style: 'float: right;'} %>
+
+  </div>
+</div>
+
