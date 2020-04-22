@@ -6,6 +6,8 @@ class Evento < ApplicationRecord
   has_many :evento_parceiros, dependent: :destroy
   has_many :parceiros, through: :evento_parceiros, dependent: :destroy
 
+  has_one_attached :imagem
+
   after_create :set_codigo
 
   def set_codigo

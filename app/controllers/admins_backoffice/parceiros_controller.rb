@@ -28,7 +28,7 @@ class AdminsBackoffice::ParceirosController < AdminsBackofficeController
 
     respond_to do |format|
       if @parceiro.save
-        format.html { redirect_to @parceiro, notice: 'Parceiro was successfully created.' }
+        format.html { redirect_to admins_backoffice_parceiros_path, notice: 'Parceiro was successfully created.' }
         format.json { render :show, status: :created, location: @parceiro }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class AdminsBackoffice::ParceirosController < AdminsBackofficeController
   def update
     respond_to do |format|
       if @parceiro.update(parceiro_params)
-        format.html { redirect_to @parceiro, notice: 'Parceiro was successfully updated.' }
+        format.html { redirect_to admins_backoffice_parceiros_path, notice: 'Parceiro was successfully updated.' }
         format.json { render :show, status: :ok, location: @parceiro }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class AdminsBackoffice::ParceirosController < AdminsBackofficeController
   def destroy
     @parceiro.destroy
     respond_to do |format|
-      format.html { redirect_to parceiros_url, notice: 'Parceiro was successfully destroyed.' }
+      format.html { redirect_to admins_backoffice_parceiros_path, notice: 'Parceiro was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -73,6 +73,7 @@ class AdminsBackoffice::ParceirosController < AdminsBackofficeController
                                      {imagens: []},
                                      :descricao,
                                      :admin_id,
-                                     :img_link)
+                                     :img_link,
+                                     :imagem)
   end
 end

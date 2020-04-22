@@ -4,5 +4,7 @@ class Parceiro < ApplicationRecord
 
   belongs_to :admin
 
-  mount_uploaders :imagens, ImageUploader
+  #mount_uploaders :imagens, ImageUploader
+
+  has_one_attached :imagem
 end

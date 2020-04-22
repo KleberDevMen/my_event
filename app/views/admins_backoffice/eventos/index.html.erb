@@ -7,7 +7,7 @@
           <%= link_to new_admins_backoffice_evento_path, class: 'btn btn-success', style: 'color: white;' do %>
             <i class="fa fa-plus-circle text-white"></i> Novo
           <% end %>
-<!--          <a class="btn btn-success">Success</a>-->
+          <!--          <a class="btn btn-success">Success</a>-->
         </li>
       </ul>
       <div class="clearfix"></div>
@@ -15,28 +15,34 @@
     <div class="x_content">
 
       <div class="table-responsive">
-      <table class="table table-hover">
-        <thead>
-        <tr>
-          <th width="50%">Título</th>
-          <th width="25%">Código</th>
-          <th width="25%">Ações</th>
-        </tr>
-        </thead>
-        <tbody>
-        <% @eventos.each do |evento| %>
+        <table class="table table-hover">
+          <thead>
           <tr>
-            <td width="50%"><%= evento.titulo %></td>
-            <td width="25%"><%= evento.codigo %></td>
-            <td width="25%" class="acoes">
-              <%= link_to 'Visualizar', admins_backoffice_evento_path(evento), style: 'color: blue' %>
-              <%= link_to 'Editar', edit_admins_backoffice_evento_path(evento), style: 'color: green' %>
-              <%= link_to 'Excluir', "/admins_backoffice/eventos/#{evento.id}", method: :delete, data: {confirm: 'Você tem certeza?'}, style: 'color: red' %>
-            </td>
+            <th width="50%">Título</th>
+            <th width="25%">Código</th>
+            <th width="25%">Ações</th>
           </tr>
-        <% end %>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+          <% @eventos.each do |evento| %>
+            <tr>
+              <td width="50%"><%= evento.titulo %></td>
+              <td width="25%"><%= evento.codigo %></td>
+              <td width="25%" class="acoes">
+                <%= link_to admins_backoffice_evento_path(evento), class: "btn btn-primary btn-xs" do %>
+                  <i class="fa fa-folder"></i> Visualizar
+                <% end %>
+                <%= link_to edit_admins_backoffice_evento_path(evento), class:"btn btn-info btn-xs" do %>
+                  <i class="fa fa-pencil"></i> Editar
+              <% end %>
+                <%= link_to "/admins_backoffice/eventos/#{evento.id}", method: :delete, data: {confirm: 'Você tem certeza?'}, class:"btn btn-danger btn-xs" do %>
+                  <i class="fa fa-trash-o"></i> Excluir
+              <% end %>
+              </td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
       </div>
 
     </div>

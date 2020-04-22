@@ -1,35 +1,69 @@
-<%= form_with(model: parceiro, local: true) do |form| %>
-  <% if parceiro.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(parceiro.errors.count, "error") %> prohibited this parceiro from being saved:</h2>
+<div class="row">
+  <div class="col-md-12 col-sm-12 ">
+    <div class="x_panel">
+      <div class="x_title">
+        <ul class="nav navbar-right panel_toolbox">
+          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+          </li>
+        </ul>
+        <div class="clearfix"></div>
+      </div>
 
-      <ul>
-      <% parceiro.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+      <div class="x_content">
+        <br>
+        <%= form_with model: [:admins_backoffice, parceiro], local: true, class: "form-horizontal form-label-left" do |f| %>
+
+          <% if parceiro.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(parceiro.errors.count, "error") %> prohibited this parceiro from being saved:</h2>
+
+              <ul>
+                <% parceiro.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <%= f.hidden_field :admin_id, value: current_admin[:id] %>
+
+          <div class="item form-group">
+            <%= f.label :nome, class: "col-form-label col-md-3 col-sm-3 label-align" %>
+            <div class="col-md-6 col-sm-6 ">
+              <%= f.text_field :nome,
+                               class: "form-control",
+                               placeholder: 'Nome' %>
+            </div>
+          </div>
+
+          <div class="item form-group">
+            <%= f.label :descricao, class: "col-form-label col-md-3 col-sm-3 label-align" %>
+            <div class="col-md-6 col-sm-6 ">
+              <%= f.text_area :descricao,
+                              class: "form-control",
+                              placeholder: 'Descrição' %>
+            </div>
+          </div>
+
+          <div class="item form-group">
+            <%= f.label :imagens, class: "col-form-label col-md-3 col-sm-3 label-align" %>
+            <div class="col-md-6 col-sm-6 ">
+              <%#= f.file_field :imagens, multiple: true %>
+<!--              <br> <strong>ou <br> link:</strong>-->
+              <%= f.text_field :img_link, placeholder: 'http://imga.com' %>
+
+              <%#= f.file_field :imagem %>
+            </div>
+          </div>
+
+          <div class="ln_solid"></div>
+          <div class="item form-group">
+            <div class="col-md-6 col-sm-6 offset-3">
+              <button type="submit" class="btn btn-success" style="float: right;">Salvar</button>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
-  <% end %>
-
-  <%= form.hidden_field :admin_id, value: current_admin[:id] %>
-  <div class="field">
-    <%= form.label :nome %>
-    <%= form.text_field :nome, accept: 'image/png,image/gif,image/jpeg' %>
   </div>
-
-  <div class="field">
-    <%= form.label :imagens %>
-    <%= form.file_field :imagens, multiple: true %>
-    <br> <strong>ou <br> link:</strong>
-    <%= form.text_field :img_link, placeholder: 'http://imga.com' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :descricao %>
-    <%= form.text_field :descricao %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

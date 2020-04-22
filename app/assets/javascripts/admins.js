@@ -12,3 +12,4 @@
 //= require cocoon
 //= require inputmask/dist/min/jquery.inputmask.bundle.min
 //= requere admins_backoffice/eventos
+//= require activestorage

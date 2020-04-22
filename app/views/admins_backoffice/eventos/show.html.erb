@@ -1,58 +1,101 @@
-<p id="notice"><%= notice %></p>
+<div class="x_panel">
+  <div class="x_title">
+    <h2><%= @evento.titulo %></h2>
+    <ul class="nav navbar-right panel_toolbox">
+      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+      </li>
+    </ul>
+    <div class="clearfix"></div>
+  </div>
+  <div class="x_content">
+    <div class="row">
+      <div class="col-md-8 col-sd-12 offset-md-2 table-responsive" style="float: left; text-align: center">
+        <%= image_tag url_for(@evento.imagem), style: 'height:150px;width:auto;' %>
+      </div>
 
-<p>
-  <strong>Titulo:</strong>
-  <%= @evento.titulo %>
-</p>
+      <div class="col-md-6">
+        <div class="x_panel">
+          <p>
+            <strong>Descricao:</strong>
+            <%= @evento.descricao %>
+          </p>
 
-<p>
-  <strong>Descricao:</strong>
-  <%= @evento.descricao %>
-</p>
+          <p>
+            <strong>Local:</strong>
+            <%= @evento.local %>
+          </p>
 
-<p>
-  <strong>Local:</strong>
-  <%= @evento.local %>
-</p>
+          <p>
+            <strong>Data inicio:</strong>
+            <%= @evento.data_inicio %>
+          </p>
 
-<!--<p>-->
-<!--  <strong>Data inicio:</strong>-->
-<%#= @evento.data_inicio %>
-<!--</p>-->
+          <p>
+            <strong>Data fim:</strong>
+            <%= @evento.data_fim %>
+          </p>
 
-<!--<p>-->
-<!--  <strong>Data fim:</strong>-->
-<%#= @evento.data_fim %>
-<!--</p>-->
+          <p>
+            <strong>Codigo:</strong>
+            <%= @evento.codigo %>
+          </p>
 
-<p>
-  <strong>Codigo:</strong>
-  <%= @evento.codigo %>
-</p>
+          <p>
+            <strong>Admin:</strong>
+            <%= @evento.admin.email %>
+          </p>
 
-<p>
-  <strong>Admin:</strong>
-  <%= @evento.admin.email %>
-</p>
 
-<p>
-  <strong>parceiros:</strong> <br>
-  <% @evento.parceiros.each do |parceiro| %>
-    <span style="margin-left: 5px"><%= "• #{parceiro.nome}" %></span> <br>
-  <% end %>
-</p>
+        </div>
+      </div>
 
-<fieldset>
-  <% @evento.dias.each do |dia| %>
-    <strong>data: <%= dia.data %></strong>
+      <div class="col-md-6">
+        <div class="x_panel">
+          <p>
+            <strong>parceiros:</strong> <br>
+            <% @evento.parceiros.each do |parceiro| %>
+              <span style="margin-left: 5px"><%= "• #{parceiro.nome}" %></span> <br>
+            <% end %>
+          </p>
 
-    <fieldset>
-      <strong>Atividades</strong> <br>
-      <% dia.atividades.each do |atv| %>
-        <strong>titulo </strong> <%= atv.titulo %> <br>
-        <strong>descrição </strong><%= atv.descricao %> <br>
-        <strong>hora </strong><%= atv.hora.strftime('%H:%M')%> <br>
-      <% end %>
-    </fieldset>
-  <% end %>
-</fieldset>
+
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <!--        <div class="x_panel">-->
+        <div class="d-flex justify-content-center">
+          <div><h6>Progração</h6></div>
+        </div>
+
+        <% @evento.dias.each do |dia| %>
+          <div class="row">
+            <div class="x_panel">
+              <div class="col-md-12">
+                <h2>
+                  <%= dia.data %>
+                  <a class="collapse-link pointer-event" style="float: right; cursor: pointer;"><i class="fa fa-chevron-up"></i></a>
+                </h2>
+              </div>
+              <div class="x_content">
+                <% dia.atividades.each do |atv| %>
+                  <div class="col-md-4">
+                    <div class="x_panel">
+                      <strong>titulo </strong> <%= atv.titulo %> <br>
+                      <strong>hora </strong><%= atv.hora.strftime('%H:%M') %> <br>
+                      <strong>descrição </strong><%= atv.descricao %> <br>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+
+
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <!--    </div>-->
+
+  </div>
+</div>
