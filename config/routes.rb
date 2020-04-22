@@ -11,5 +11,5 @@ Rails.application.routes.draw do
     resources :parceiros
   end
 
-  root "admins_entity#index"
+  root "admins_backoffice/eventos#index"
 end
