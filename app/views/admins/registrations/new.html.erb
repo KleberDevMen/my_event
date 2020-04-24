@@ -7,16 +7,19 @@
 
           <div>
             <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email" %>
+            <% if @minimum_password_length %>
+              <em>(mínimo <%= @minimum_password_length %> caracteres)</em>
+            <% end %><br/>
           </div>
 
           <div>
-            <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %> characters minimum)</em>
-            <% end %><br/>
             <%= f.password_field :password, class: "form-control", placeholder: "Senha" %>
           </div>
 
           <div>
+            <% if @minimum_password_length %>
+              <em>(mínimo <%= @minimum_password_length %> caracteres)</em>
+            <% end %><br/>
             <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirmação da senha" %>
           </div>
 

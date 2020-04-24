@@ -70,10 +70,8 @@ class AdminsBackoffice::ParceirosController < AdminsBackofficeController
   # Only allow a list of trusted parameters through.
   def parceiro_params
     params.require(:parceiro).permit(:nome,
-                                     {imagens: []},
                                      :descricao,
                                      :admin_id,
-                                     :img_link,
                                      :imagem)
   end
 end

@@ -65,7 +65,7 @@ class AdminsBackoffice::EventosController < AdminsBackofficeController
   private
 
   def set_combos
-    @parceiros = Parceiro.all.map { |p| [p.nome, p.id] }
+    @parceiros = Parceiro.where(admin_id: current_admin[:id]).map { |p| [p.nome, p.id] }
   end
 
   # Use callbacks to share common setup or constraints between actions.
@@ -79,12 +79,11 @@ class AdminsBackoffice::EventosController < AdminsBackofficeController
     params.require(:evento).permit(:titulo,
                                    :descricao,
                                    :local,
-                                   :data_inicio,
-                                   :data_fim,
                                    :codigo,
                                    :admin_id,
+                                   :imagem,
                                    parceiro_ids: [],
-                                   dias_attributes: [:id, :data, :_destroy,
-                                                     atividades_attributes: [:id, :titulo, :descricao, :hora, :_destroy]])
+                                   dias_attributes: [:id, :data_s, :_destroy,
+                                                     atividades_attributes: [:id, :titulo, :descricao, :hora_s, :_destroy]])
   end
 end

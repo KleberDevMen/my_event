@@ -10,24 +10,26 @@
         <%= f.label :titulo, class: 'mb-0' %>
         <%= f.text_field :titulo,
                          class: "form-control",
-                         placeholder: 'Título' %>
+                         placeholder: 'Título', maxlength: 60, size: 60 %>
+        <span style="font-style: italic;">(máx 60 caracteres)</span>
       </div>
 
       <div class="form-group">
         <%= f.label :descricao, class: "mb-0" %>
         <%= f.text_area :descricao,
                         class: "form-control",
-                        placeholder: 'Descrição' %>
+                        placeholder: 'Descrição', size: "3x3", maxlength: 250 %>
+        <span style="font-style: italic;">(máx 250 caracteres)</span>
       </div>
       <div class="row">
         <div class="col-md-12 col-sm-6">
           <div class="form-group">
-            <%= f.label :hora, class: "mb-0" %>
-            <%= f.text_field :hora, class: 'form-control time' %>
+            <%= f.label :hora_s, 'Horas', class: "mb-0" %>
+            <%= f.text_field :hora_s, class: 'form-control time' %>
           </div>
         </div>
       </div>
-    <%= link_to_remove_association "remover atividade", f, {class: 'red', style: 'float: right;'} %>
+      <%= link_to_remove_association "remover atividade", f, {class: 'red', style: 'float: right;'} %>
     </div>
   </div>
 </div>

@@ -48,11 +48,11 @@
           <div class="item form-group">
             <%= f.label :imagens, class: "col-form-label col-md-3 col-sm-3 label-align" %>
             <div class="col-md-6 col-sm-6 ">
-              <%#= f.file_field :imagens, multiple: true %>
-<!--              <br> <strong>ou <br> link:</strong>-->
-              <%= f.text_field :img_link, placeholder: 'http://imga.com' %>
+              <%#= f.text_field :img_link, placeholder: 'http://imga.com' %>
 
-              <%#= f.file_field :imagem %>
+              <%= f.file_field :imagem,
+                               class: "form-control",
+                               placeholder: 'Logo' %>
             </div>
           </div>
 
@@ -60,6 +60,7 @@
           <div class="item form-group">
             <div class="col-md-6 col-sm-6 offset-3">
               <button type="submit" class="btn btn-success" style="float: right;">Salvar</button>
+              <a class="btn btn-danger text-white" href="<%= request.referrer %>" style="float: right;">Voltar</a>
             </div>
           </div>
         <% end %>

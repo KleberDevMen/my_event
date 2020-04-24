@@ -62,6 +62,8 @@ pt-BR:
         titulo: Título
         codigo: Código
         local: Local
+        data_s: Data
+        hora_s: Hora
 
 
   recaptcha:

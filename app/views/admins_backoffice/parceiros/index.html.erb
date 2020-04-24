@@ -28,15 +28,9 @@
             <tr>
               <td width="40%"><%= parceiro.nome %></td>
               <td width="30%">
-                <% if parceiro.img_link.present? %>
                   <a href="#" onclick='window.open("<%= parceiro.img_link %>");return false;'>
-                    <%= image_tag parceiro.img_link, class: 'img-icon-small' %>
+                    <%= image_tag parceiro.imagem, class: 'img-icon-small' %>
                   </a>
-                <% elsif parceiro.imagens.any? %>
-                  <a href="#" onclick='window.open("<%= parceiro.imagens.first.url %>");return false;'>
-                    <%= image_tag parceiro.imagens.first.url %>
-                  </a>
-                <% end %>
               </td>
               <td width="30%" class="acoes">
                 <%= link_to admins_backoffice_parceiro_path(parceiro), class: "btn btn-primary btn-xs" do %>

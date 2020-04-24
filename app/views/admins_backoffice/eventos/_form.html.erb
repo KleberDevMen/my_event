@@ -11,89 +11,104 @@
       </div>
 
       <div class="x_content">
-        <br>
+        <div class="row"></div>
         <%= form_with model: [:admins_backoffice, evento], local: true, class: "form-horizontal form-label-left" do |f| %>
-            <div class="item form-group">
-              <div class="col-md-6 col-sm-6 offset-3">
-                <button type="submit" class="btn btn-success" style="float: right;">Salvar</button>
-              </div>
+          <div class="form-group">
+            <div class="col-md-12 col-sm-6">
+              <button type="submit" class="btn btn-success" style="float: right;">Salvar</button>
+              <a class="btn btn-danger text-white" href="<%= request.referrer %>" style="float: right;">Voltar</a>
             </div>
+          </div>
 
-            <% if evento.errors.any? %>
-              <div id="error_explanation">
-                <h2><%= pluralize(evento.errors.count, "error") %> prohibited this evento from being saved:</h2>
+          <% if evento.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(evento.errors.count, "error") %> prohibited this evento from being saved:</h2>
 
-                <ul>
-                  <% evento.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                  <% end %>
-                </ul>
-              </div>
-            <% end %>
-
-            <div class="item form-group">
-              <%= f.label :titulo, class: "col-form-label col-md-3 col-sm-3 label-align" %>
-              <div class="col-md-6 col-sm-6 ">
-                <%= f.text_field :titulo,
-                                 class: "form-control",
-                                 placeholder: 'Título' %>
-              </div>
-            </div>
-
-            <div class="item form-group">
-              <%= f.label :descricao, class: "col-form-label col-md-3 col-sm-3 label-align" %>
-              <div class="col-md-6 col-sm-6 ">
-                <%= f.text_area :descricao,
-                                class: "form-control",
-                                placeholder: 'Descrição' %>
-              </div>
-            </div>
-
-            <div class="item form-group">
-              <%= f.label :local, class: "col-form-label col-md-3 col-sm-3 label-align" %>
-              <div class="col-md-6 col-sm-6 ">
-                <%= f.text_area :local,
-                                class: "form-control",
-                                placeholder: 'Local' %>
-              </div>
-            </div>
-
-            <div class="item form-group ">
-              <%= f.label :parceiro_ids, "Parceiros", class: "col-form-label col-md-3 col-sm-3 label-align" %>
-              <div class="col-md-6 col-sm-6 ">
-                <%= f.select :parceiro_ids,
-                             options_for_select(@parceiros, evento.parceiro_ids),
-                             {},
-                             {class: 'select2_multiple form-control', multiple: "multiple"} %>
-              </div>
-            </div>
-
-            <%= f.hidden_field :admin_id, value: current_admin[:id] %>
-
-            <div class="ln_solid"></div>
-
-
-              <div class="row">
-                <div class="col-md-8 col-sd-6 offset-md-2">
-                  <%= f.fields_for :dias do |dia| %>
-                    <%= render 'dias_fields', :f => dia %>
-                  <% end %>
-                  <div class='links'>
-                    <%= link_to_add_association 'adicionar dia', f, :dias,
-                                                {partial: 'dias_fields',
-                                                 class: 'btn btn-success btn-sm mt-2 add-dia'} %>
-                  </div>
-                </div>
-              </div>
-
-
-            <div class="ln_solid"></div>
-            <div class="item form-group">
-              <div class="col-md-6 col-sm-6 offset-3">
-                <button type="submit" class="btn btn-success" style="float: right;">Salvar</button>
-              </div>
+              <ul>
+                <% evento.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
             </div>
           <% end %>
+
+          <div class="row">
+            <div class="col-md-6 col-sm-6 ">
+              <div class="form-group">
+                <%= f.label :imagem, class: 'mb-0' %>
+                <%= f.file_field :imagem,
+                                 class: "form-control",
+                                 placeholder: 'Logo' %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 col-sm-6 ">
+              <div class="form-group">
+                <%= f.label :titulo, class: "mb-0" %>
+                <%= f.text_field :titulo,
+                                 class: "form-control",
+                                 placeholder: 'Título', maxlength: 60, size: 60 %>
+                <span style="font-style: italic;">(máx 60 caracteres)</span>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 ">
+              <div class="form-group">
+                <%= f.label :local, class: "mb-0" %>
+                  <%= f.text_field :local,
+                                  class: "form-control",
+                                  placeholder: 'Local', maxlength: 50, size: 50 %>
+                <span style="font-style: italic;">(máx 50 caracteres)</span>
+              </div>
+            </div>
+          </div>
+            <div class="row">
+              <div class="col-md-6 col-sm-6">
+                <%= f.label :descricao, class: "mb-0" %>
+                <%= f.text_area :descricao,
+                                class: "form-control",
+                                placeholder: 'Descrição', size: "3x4", maxlength: 250 %>
+                <span style="font-style: italic;">(máx 250 caracteres)</span>
+              </div>
+
+              <div class="col-md-6 col-sm-6">
+                <div class="form-group">
+                <%= f.label :parceiro_ids, "Parceiros", class: "mb-0" %>
+                  <%= f.select :parceiro_ids,
+                               options_for_select(@parceiros, evento.parceiro_ids),
+                               {},
+                               {class: 'select2_multiple form-control', multiple: "multiple"} %>
+                </div>
+              </div>
+            </div>
+
+          <%= f.hidden_field :admin_id, value: current_admin[:id] %>
+
+          <div class="ln_solid"></div>
+
+          <div class="row">
+            <div class="col-md-12 col-sd-6">
+              <%= f.fields_for :dias do |dia| %>
+                <%= render 'dias_fields', :f => dia %>
+              <% end %>
+              <div class='links'>
+                <%= link_to_add_association 'adicionar dia', f, :dias,
+                                            {partial: 'dias_fields',
+                                             class: 'btn btn-success btn-sm mt-2 add-dia'} %>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="ln_solid"></div>
+          <div class="form-group">
+            <div class="col-md-12 col-sm-6">
+              <button type="submit" class="btn btn-success" style="float: right;">Salvar</button>
+              <a class="btn btn-danger text-white" href="<%= request.referrer %>" style="float: right;">Voltar</a>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
