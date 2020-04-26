@@ -1,3 +1,2 @@
-//= require jquery
-//= require rails-ujs
+//= require jquery/dist/jquery
 //= require_self
