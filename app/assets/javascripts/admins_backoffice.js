@@ -1,5 +1,5 @@
 
-//>= require jquery/dist/jquery
+//= require jquery/dist/jquery
 //= require bootstrap-growl-ifightcrime/jquery.bootstrap-growl
 //= require rails-ujs
 //= require bootstrap/dist/js/bootstrap.bundle
