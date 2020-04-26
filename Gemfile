@@ -70,4 +70,4 @@ gem 'carrierwave', '~> 2.0'
 gem "select2-rails"
 gem 'rails-i18n', '~> 5.1'
 
-gem 'jquery-rails'
+gem 'rails_12factor'
