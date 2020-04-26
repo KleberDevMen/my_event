@@ -18,4 +18,4 @@ A partir de 1982 passaram a se chamar Congresso Nacional de Milho e Sorgo.',
     admin_id: 1
 )
 
-congresso.imagem.attach(io: File.open("#{tmp_dir}/seed_files/logo-congresso.png"), filename: "logo-congresso.png")
+#congresso.imagem.attach(io: File.open("#{tmp_dir}/seed_files/logo-congresso.png"), filename: "logo-congresso.png")
