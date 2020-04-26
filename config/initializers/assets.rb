@@ -2,7 +2,7 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 # /app/assets
-Rails.application.config.assets.precompile += %w( admins.js admins.scss
+Rails.application.config.assets.precompile += %w(
                                                   admin_devise.js admin_devise.scss
                                                   admins_backoffice.js admins_backoffice.scss )
 
