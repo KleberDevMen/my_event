@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   end
 
   namespace :users_backoffice do
-    get 'eventos/evento'
-    get 'eventos/programacao'
+    get 'eventos/evento', :defaults => { :format => :json }
+    get 'eventos/programacao', :defaults => { :format => :json }
   end
   root "admins_backoffice/eventos#index"
 end

@@ -1,3 +1,4 @@
+# binding.pry
 json.dias @evento.dias.each do |dia|
   json.id dia.id
   json.data dia.data
