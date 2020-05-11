@@ -16,7 +16,7 @@
           <div class="form-group">
             <div class="col-md-12 col-sm-6">
               <button type="submit" class="btn btn-success" style="float: right;">Salvar</button>
-              <a class="btn btn-danger text-white" href="<%= request.referrer %>" style="float: right;">Voltar</a>
+              <a class="btn btn-danger text-white" href="<%= admins_backoffice_eventos_path %>" style="float: right;">Voltar</a>
             </div>
           </div>
 
@@ -39,6 +39,22 @@
                 <%= f.file_field :imagem,
                                  class: "form-control",
                                  placeholder: 'Logo' %>
+              </div>
+            </div>
+
+            <div class="col-md-3 col-sm-12 ">
+              <div class="form-group">
+                <%= f.label :data_inicio_s, 'Data início', class: "mb-0" %>
+                <%= f.text_field :data_inicio_s,
+                                 class: "form-control date" %>
+              </div>
+            </div>
+
+            <div class="col-md-3 col-sm-12 ">
+              <div class="form-group">
+                <%= f.label :data_fim_s, 'Data fim', class: "mb-0" %>
+                <%= f.text_field :data_fim_s,
+                                 class: "form-control date" %>
               </div>
             </div>
           </div>
@@ -105,7 +121,7 @@
           <div class="form-group">
             <div class="col-md-12 col-sm-6">
               <button type="submit" class="btn btn-success" style="float: right;">Salvar</button>
-              <a class="btn btn-danger text-white" href="<%= request.referrer %>" style="float: right;">Voltar</a>
+              <a class="btn btn-danger text-white" href="<%= admins_backoffice_eventos_path %>" style="float: right;">Voltar</a>
             </div>
           </div>
         <% end %>
@@ -117,6 +133,8 @@
 <% content_for :footer_adm do %>
   <script>
       $(document).ready(function () {
+          $('.date').mask('00/00/0000');
+
           $(document).on('click', '.add-dia', function () {
               $('.date').mask('00/00/0000');
           })

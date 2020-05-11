@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_24_000756) do
+ActiveRecord::Schema.define(version: 2020_05_11_001729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,8 @@ ActiveRecord::Schema.define(version: 2020_04_24_000756) do
     t.bigint "admin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "data_inicio_s"
+    t.string "data_fim_s"
     t.index ["admin_id"], name: "index_eventos_on_admin_id"
   end
 
@@ -98,6 +100,7 @@ ActiveRecord::Schema.define(version: 2020_04_24_000756) do
     t.datetime "updated_at", null: false
     t.bigint "admin_id"
     t.string "img_link"
+    t.string "tipo"
     t.index ["admin_id"], name: "index_parceiros_on_admin_id"
   end
 

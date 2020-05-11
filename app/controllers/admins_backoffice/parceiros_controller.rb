@@ -72,6 +72,7 @@ class AdminsBackoffice::ParceirosController < AdminsBackofficeController
     params.require(:parceiro).permit(:nome,
                                      :descricao,
                                      :admin_id,
-                                     :imagem)
+                                     :imagem,
+                                     :tipo)
   end
 end

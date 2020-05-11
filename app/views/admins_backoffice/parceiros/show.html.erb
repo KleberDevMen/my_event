@@ -15,11 +15,22 @@
         <strong>Descrição:</strong>
         <%= @parceiro.descricao %>
       </p>
+
+      <p>
+
+        <strong>Tipo:</strong>
+        <%= @parceiro.tipo_text %>
+      </p>
     </div>
   </div>
     <div class="d-flex justify-content-center bd-highlight">
       <div class="bd-highlight">
-        <a class="btn btn-danger text-white" href="<%= request.referrer %>" style="float: right;">Voltar</a>
+        <a class="btn btn-danger text-white" href="<%= admins_backoffice_parceiros_path %>" style="float: right;">Voltar</a>
+      </div>
+      <div class="bd-highlight">
+        <%= link_to edit_admins_backoffice_parceiro_path(@parceiro), class:"btn btn-info btn-xs" do %>
+          <i class="fa fa-pencil"></i> Editar
+        <% end %>
       </div>
     </div>
 </div>

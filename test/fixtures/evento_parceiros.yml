@@ -1,4 +1,13 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# == Schema Information
+#
+# Table name: evento_parceiros
+#
+#  id          :bigint           not null, primary key
+#  evento_id   :bigint
+#  parceiro_id :bigint
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
 
 one:
   evento: one

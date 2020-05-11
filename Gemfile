@@ -50,6 +50,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry-byebug'
   gem 'byebug'
+  gem 'annotate'
 end
 
 group :test do
@@ -73,3 +74,5 @@ gem 'rails-i18n', '~> 5.1'
 gem 'rails_12factor'
 
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
+
+gem 'enumerize'

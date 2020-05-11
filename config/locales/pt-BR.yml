@@ -1,5 +1,9 @@
 ---
 pt-BR:
+  tipo_parceiro_values:
+    patrocinador: Patrocinador 
+    apoiador: Apoiador 
+    organizador: Organizador
   messages:
     cadastrado: "Cadastrado!"
     cadastro_erro: "Um erro impediu o cadastro"

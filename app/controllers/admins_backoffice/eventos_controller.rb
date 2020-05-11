@@ -78,6 +78,8 @@ class AdminsBackoffice::EventosController < AdminsBackofficeController
   def evento_params
     params.require(:evento).permit(:titulo,
                                    :descricao,
+                                   :data_inicio_s,
+                                   :data_fim_s,
                                    :local,
                                    :codigo,
                                    :admin_id,

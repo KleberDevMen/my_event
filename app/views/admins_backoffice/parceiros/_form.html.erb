@@ -46,7 +46,7 @@
           </div>
 
           <div class="item form-group">
-            <%= f.label :imagens, class: "col-form-label col-md-3 col-sm-3 label-align" %>
+            <%= f.label :imagem, class: "col-form-label col-md-3 col-sm-3 label-align" %>
             <div class="col-md-6 col-sm-6 ">
               <%#= f.text_field :img_link, placeholder: 'http://imga.com' %>
 
@@ -56,11 +56,23 @@
             </div>
           </div>
 
+          <div class="item form-group">
+            <%= f.label :tipo, class: "col-form-label col-md-3 col-sm-3 label-align" %>
+            <div class="col-md-6 col-sm-6 ">
+              <%#= f.text_field :img_link, placeholder: 'http://imga.com' %>
+
+              <%= f.select :tipo,
+                                 Parceiro.tipo.options,
+                                 {},
+                                 {class: 'form-control'} %>
+            </div>
+          </div>
+
           <div class="ln_solid"></div>
           <div class="item form-group">
             <div class="col-md-6 col-sm-6 offset-3">
               <button type="submit" class="btn btn-success" style="float: right;">Salvar</button>
-              <a class="btn btn-danger text-white" href="<%= request.referrer %>" style="float: right;">Voltar</a>
+              <a class="btn btn-danger text-white" href="<%= admins_backoffice_parceiros_path %>" style="float: right;">Voltar</a>
             </div>
           </div>
         <% end %>

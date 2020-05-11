@@ -28,8 +28,8 @@
             <tr>
               <td width="40%"><%= parceiro.nome %></td>
               <td width="30%">
-                  <a href="#" onclick='window.open("<%= parceiro.img_link %>");return false;'>
-                    <%= image_tag parceiro.imagem, class: 'img-icon-small' %>
+                  <a href="#" onclick='window.open("<%= url_for(parceiro.imagem) %>");return false;'>
+                    <%= image_tag url_for(parceiro.imagem), class: 'img-icon-small' %>
                   </a>
               </td>
               <td width="30%" class="acoes">
