@@ -21,6 +21,7 @@
                         placeholder: 'Descrição', size: "3x3", maxlength: 250 %>
         <span style="font-style: italic;">(máx 250 caracteres)</span>
       </div>
+      
       <div class="row">
         <div class="col-md-12 col-sm-6">
           <div class="form-group">
@@ -29,6 +30,15 @@
           </div>
         </div>
       </div>
+
+      <div class="form-group">
+        <%= f.label :local, class: "mb-0" %>
+        <%= f.text_field :local,
+                        class: "form-control",
+                        placeholder: 'Local', maxlength: 80, size: 80 %>
+        <span style="font-style: italic;">(máx 80 caracteres)</span>
+      </div>
+
       <%= link_to_remove_association "remover atividade", f, {class: 'red', style: 'float: right;'} %>
     </div>
   </div>

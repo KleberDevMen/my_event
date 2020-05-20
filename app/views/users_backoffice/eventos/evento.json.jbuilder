@@ -1,3 +1,5 @@
+json.id @evento.id
+json.code @evento.codigo
 json.img_link url_for(@evento.imagem)
 json.titulo @evento.titulo
 json.data_inicio_s @evento.data_inicio_s

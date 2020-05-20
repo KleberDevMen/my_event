@@ -86,6 +86,6 @@ class AdminsBackoffice::EventosController < AdminsBackofficeController
                                    :imagem,
                                    parceiro_ids: [],
                                    dias_attributes: [:id, :data_s, :_destroy,
-                                                     atividades_attributes: [:id, :titulo, :descricao, :hora_s, :_destroy]])
+                                                     atividades_attributes: [:id, :titulo, :descricao, :hora_s, :local, :_destroy]])
   end
 end

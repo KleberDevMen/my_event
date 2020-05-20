@@ -12,7 +12,10 @@ class UsersBackoffice::EventosController < UsersBackofficeController
   private
 
   def set_evento
-    # binding.pry
+    if params[:code]
+      @evento = Evento.find_by(codigo: params[:code])
+    else
     @evento = Evento.find(params[:id])
+    end
   end
 end
