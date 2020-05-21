@@ -76,3 +76,4 @@ gem 'rails_12factor'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 
 gem 'enumerize'
+gem 'cloudinary'

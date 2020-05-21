@@ -2,6 +2,12 @@ test:
   service: Disk
   root: <%= Rails.root.join("tmp/storage") %>
 
+cloudinary:
+  service: Cloudinary
+  cloud_name: kleberdevmen
+  api_key: '972363225789568'
+  api_secret: 0y9ZyQMJx2L3VTgztbWptiR0Wlo
+
 local:
   service: Disk
   root: <%= Rails.root.join("storage") %>
