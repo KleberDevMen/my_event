@@ -77,3 +77,6 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 
 gem 'enumerize'
 gem 'cloudinary'
+#gem 'firebase'
+#gem 'google-cloud-firestore'
+#gem 'google-cloud-bigquery'

@@ -1,5 +1,5 @@
 class AdminsBackoffice::EventosController < AdminsBackofficeController
-  before_action :set_evento, only: [:show, :edit, :update, :destroy]
+  before_action :set_evento, only: [:show, :edit, :update, :destroy, :inscritos]
   before_action :set_combos, only: [:new, :create, :edit, :update]
 
   # GET /eventos
@@ -60,6 +60,64 @@ class AdminsBackoffice::EventosController < AdminsBackofficeController
       format.html { redirect_to admins_backoffice_eventos_path, notice: t('messages.deletado') }
       format.json { head :no_content }
     end
+  end
+
+  def inscritos
+
+
+    # *** GEM FIREBASE
+    #private_key_json_string = File.open('config/firebase.json').read
+    #base_uri = "https://my-event-b8375.firebaseio.com"
+    #firebase = Firebase::Client.new(base_uri, private_key_json_string)
+    #
+    #@response = firebase.get('col/doc/texto')
+
+
+    # *** GEM FIRESTORE
+    #require "google/cloud/firestore"
+    #firestore = Google::Cloud::Firestore.new(
+    #    project_id: "my-event-b8375",
+    #    credentials: "config/firebase.json"
+    #)
+    #
+    #city = firestore.col("col").doc("doc")
+    #
+    #city.set({name: "San Francisco",
+    #          state: "CA",
+    #          country: "USA",
+    #          capital: false,
+    #          population: 860000})
+    #
+    #
+    #firestore.transaction do |tx|
+    #  new_population = tx.get(city).data[:population] + 1
+    #  binding.pry
+    #  tx.update(city, {population: new_population})
+    #end
+
+
+    # *** GEM BIGQUERY
+    #require "google/cloud/bigquery"
+    #
+    #Google::Cloud::Bigquery.configure do |config|
+    #  config.project_id = "my-event-b8375"
+    #  config.credentials = "config/firebase.json"
+    #end
+    #
+    #bigquery = Google::Cloud::Bigquery.new
+    #
+    #sql = "SELECT * FROM users"
+    #data = bigquery.query sql
+    #puts data
+      #bigquery.datasets.first.dataset_id #=> "samples"
+      #
+      #dataset = bigquery.datasets.first
+      #tables = dataset.tables
+      #
+      #tables.count #=> 7
+      #tables.map &:table_id #=> [..., "shakespeare", "trigrams", "wikipedia"]
+
+
   end
 
   private
