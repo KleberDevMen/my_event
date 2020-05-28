@@ -64,59 +64,26 @@ class AdminsBackoffice::EventosController < AdminsBackofficeController
 
   def inscritos
 
+    require "google/cloud/firestore"
+    firestore = Google::Cloud::Firestore.new(project_id: "my-event-b8375",credentials: "config/firebase.json")
+    table = firestore.collection 'users'
+    table.where('cpf', '==', '06250631127').get.map {|u| u.data[:email] }
+    table.where('cpf', '==', '06250631127').get.count
+    table.get.count
 
-    # *** GEM FIREBASE
-    #private_key_json_string = File.open('config/firebase.json').read
-    #base_uri = "https://my-event-b8375.firebaseio.com"
-    #firebase = Firebase::Client.new(base_uri, private_key_json_string)
-    #
-    #@response = firebase.get('col/doc/texto')
+    # traz dados de um usuário
+    firestore.doc('users/Dv6f3VvRsMRtR3U7StxhbJHM2cl1').get.data
 
+    # traz os nomes de todos usuarios de uma lista de cpfs
+    table.get.select {|u| ['06250631127'].include? u.data[:cpf] }.map {|u| u.data[:name] }
 
-    # *** GEM FIRESTORE
-    #require "google/cloud/firestore"
-    #firestore = Google::Cloud::Firestore.new(
-    #    project_id: "my-event-b8375",
-    #    credentials: "config/firebase.json"
-    #)
-    #
-    #city = firestore.col("col").doc("doc")
-    #
-    #city.set({name: "San Francisco",
-    #          state: "CA",
-    #          country: "USA",
-    #          capital: false,
-    #          population: 860000})
-    #
-    #
-    #firestore.transaction do |tx|
-    #  new_population = tx.get(city).data[:population] + 1
-    #  binding.pry
-    #  tx.update(city, {population: new_population})
-    #end
+    # traz inscritos em um determinado evento
+    i_eventos = firestore.collection 'inscricoes_evento'
+    i_eventos.where('evento_id', '==', '2').get.map {|i| i.data[:user_id]}
 
-
-    # *** GEM BIGQUERY
-    #require "google/cloud/bigquery"
-    #
-    #Google::Cloud::Bigquery.configure do |config|
-    #  config.project_id = "my-event-b8375"
-    #  config.credentials = "config/firebase.json"
-    #end
-    #
-    #bigquery = Google::Cloud::Bigquery.new
-    #
-    #sql = "SELECT * FROM users"
-    #data = bigquery.query sql
-    #puts data
-      #bigquery.datasets.first.dataset_id #=> "samples"
-      #
-      #dataset = bigquery.datasets.first
-      #tables = dataset.tables
-      #
-      #tables.count #=> 7
-      #tables.map &:table_id #=> [..., "shakespeare", "trigrams", "wikipedia"]
-
+    # traz inscritos em uma determinada atividade
+    i_atividades = firestore.collection 'inscricoes_atividade'
+    i_atividades.where('atividade_id', '==', '1').get.map {|i| i.data[:user_id]}
 
   end
 
