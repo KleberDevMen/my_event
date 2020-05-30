@@ -1,5 +1,5 @@
 class AdminsBackoffice::EventosController < AdminsBackofficeController
-  before_action :set_evento, only: [:show, :edit, :update, :destroy, :inscritos]
+  before_action :set_evento, only: [:show, :edit, :update, :destroy]
   before_action :set_combos, only: [:new, :create, :edit, :update]
 
   # GET /eventos
@@ -67,23 +67,30 @@ class AdminsBackoffice::EventosController < AdminsBackofficeController
     require "google/cloud/firestore"
     firestore = Google::Cloud::Firestore.new(project_id: "my-event-b8375",credentials: "config/firebase.json")
     table = firestore.collection 'users'
-    table.where('cpf', '==', '06250631127').get.map {|u| u.data[:email] }
-    table.where('cpf', '==', '06250631127').get.count
-    table.get.count
-
-    # traz dados de um usuário
-    firestore.doc('users/Dv6f3VvRsMRtR3U7StxhbJHM2cl1').get.data
-
-    # traz os nomes de todos usuarios de uma lista de cpfs
-    table.get.select {|u| ['06250631127'].include? u.data[:cpf] }.map {|u| u.data[:name] }
+    #table.where('cpf', '==', '06250631127').get.map {|u| u.data[:email] }
+    #table.where('cpf', '==', '06250631127').get.count
+    #table.get.count
+    #
+    ## traz dados de um usuário
+    #firestore.doc('users/Dv6f3VvRsMRtR3U7StxhbJHM2cl1').get.data
+    #
+    ## traz os nomes de todos usuarios de uma lista de cpfs
+    #table.get.select {|u| ['06250631127'].include? u.data[:cpf] }.map {|u| u.data[:name] }
 
     # traz inscritos em um determinado evento
     i_eventos = firestore.collection 'inscricoes_evento'
-    i_eventos.where('evento_id', '==', '2').get.map {|i| i.data[:user_id]}
+    #binding.pry
+    user_ids = i_eventos.where('evento_id', '==', params[:id]).get.map {|i| i.data[:user_id]}.uniq
 
-    # traz inscritos em uma determinada atividade
-    i_atividades = firestore.collection 'inscricoes_atividade'
-    i_atividades.where('atividade_id', '==', '1').get.map {|i| i.data[:user_id]}
+    #binding.pry
+    # traz os nomes de todos usuarios de uma lista de cpfs
+    @users = table.get.select {|u| user_ids.include? u.document_id }.map {|u| u.data}
+
+
+
+    ## traz inscritos em uma determinada atividade
+    #i_atividades = firestore.collection 'inscricoes_atividade'
+    #i_atividades.where('atividade_id', '==', '1').get.map {|i| i.data[:user_id]}
 
   end
 
